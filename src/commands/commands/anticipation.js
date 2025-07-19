@@ -13,9 +13,6 @@ module.exports = {
         const voicelines = voicelinesMap["voicelines"];
         const voiceline = voicelines[Math.floor(Math.random() * voicelines.length)];
             
-        await interaction.reply({
-            content: `${voiceline.text}`,
-            ephemeral: false
-        });
+        await interaction.reply({ content: `${voiceline.text}` });
       },
 }
