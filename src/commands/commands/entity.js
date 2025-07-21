@@ -1,0 +1,24 @@
+const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
+const fs = require("fs/promises");
+
+module.exports = {
+    data: {
+        name: "entity",
+        description: "Get a random entity from Pressure",
+        "integration_types": [0, 1],
+        "contexts": [0, 1, 2]
+    },
+    async execute(interaction) {
+
+      const entitiesJsonData = await fs.readFile("data/entities.json", {encoding: "utf8"});
+      const entitiesMap = JSON.parse(entitiesJsonData);
+      const entities = entitiesMap["entities"];
+      const entity = entities[Math.floor(Math.random() * entities.length)];
+
+      const embed = new EmbedBuilder()
+      .setTitle(`${entity.name}`)
+      .setImage(`https://cdn.sylvee.xyz/${entity.path}.png`)
+
+      await interaction.reply({ embeds: [embed] });
+    },
+};
