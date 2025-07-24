@@ -16,6 +16,7 @@ module.exports = {
       const entity = entities[Math.floor(Math.random() * entities.length)];
 
       const embed = new EmbedBuilder()
+      .setColor(`#768996`)
       .setTitle(`${entity.name}`)
       .setImage(`https://cdn.sylvee.xyz/${entity.path}.png`)
 
