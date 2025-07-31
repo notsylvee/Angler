@@ -18,7 +18,7 @@ module.exports = {
       const embed = new EmbedBuilder()
       .setColor(`#768996`)
       .setTitle(`${entity.name}`)
-      .setImage(`https://cdn.sylvee.xyz/${entity.path}.png`)
+      .setImage(`https://cdn.sylvee.xyz/pressureentity${entity.num}.png`)
 
       await interaction.reply({ embeds: [embed] });
     },
